@@ -4,12 +4,12 @@ const cors = require('cors');
 
 class Server {
     constructor(){
-        this.app = expres();
-        this.port = proncess.env.PORT;
+        this.app = express();
+        this.port = process.env.PORT;
         this.newsPath = '/api/news';
 
         //Database Connection
-        connectDB();
+        this.connectDB();
 
         //Middlewares
         this.middlewares();
