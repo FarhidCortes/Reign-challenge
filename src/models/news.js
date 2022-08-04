@@ -39,6 +39,11 @@ const NewsSchema = Schema({
           type: [
             String
           ]
+        },
+        objectID:{
+          type: String,
+          required: [true, 'ObjectID is necesary'],
+          unique: true,
         }
 });
 

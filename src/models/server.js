@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const { dbConnection } = require('../database/config');
+const { newsAPI } = require('../script/newsAPI');
+
 
 class Server {
     constructor(){
@@ -42,6 +44,14 @@ class Server {
         this.app.listen(
             this.port, () => {
                 console.log('Server running in port: ',this.port);
+                //First call
+                newsAPI();
+                //Each 1 hour
+                var minutes = 1, the_interval = minutes * 60 * 1000;
+                setInterval(function() {
+                    console.log("30 minutes passed: Getting news from API");
+                    newsAPI();
+                }, the_interval);
             }
         );
     }
