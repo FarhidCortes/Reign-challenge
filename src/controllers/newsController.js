@@ -5,17 +5,36 @@ const { response, request } = require('express');
 //when "/news" is called
 const getNews = async (req = request, res = response) => {
 
-    const { limit = 5, from = 0 } = req.query;
+    const { limit = 5, from = 0, filter = '' } = req.query;
 
-    const [ news ] = await Promise.all([
-        News.find({state: true})
+    if(filter != ''){
+
+        const search = new RegExp(filter, 'i');
+        const [ news ] = await Promise.all([
+            News.find({
+                $and: [
+                    { state: true },
+                    {$or:[{ "author": search},{ "title": search},{ "_tags": search}]}
+                ]
+            })
             .skip( Number( from ) )
             .limit(Number( limit ))
-    ]);
-
-    return res.json({
-        news
-    });
+        ]);
+        return res.json({
+            news
+        });
+    }else{
+        const [ news ] = await Promise.all([
+            News.find({state: true})
+            .skip( Number( from ) )
+            .limit(Number( limit ))
+        ]);
+        return res.json({
+            news
+        });
+    }
+        
+    
 }
 
 //when "/news/:objectid" is called
