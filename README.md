@@ -39,7 +39,7 @@ With three query parars:
 Example:
 /api/news?from=3&limit=4?filter=story_32334455
 
-Test whit the [postman collection](https://link-url-here.org) of this guide.
+Test whit the [postman collection](https://www.getpostman.com/collections/e1cbc74bf930dd31e806) of this guide.
 
 To delete a element from the database, is necesary call the endpoint /news/:id with the method "DELETE".
 
