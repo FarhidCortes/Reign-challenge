@@ -4,6 +4,7 @@
   "description": "Reign back end developer challenge API",
   "main": "index.js",
   "scripts": {
+    "start": "node ./src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,7 +22,6 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "mongoose": "^6.5.0",
-    "nodemon": "^2.0.19"
+    "mongoose": "^6.5.0"
   }
 }

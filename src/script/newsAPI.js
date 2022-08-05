@@ -11,13 +11,14 @@ const newsAPI = async () => {
         const data = resp.data;
         for(const hit of data.hits){
             const { created_at, title, url, author, points, story_text, comment_text, story_id, story_title, story_url, parent_id, created_at_i, _tags, objectID } = hit;
-            const news = new News({ created_at, title, url, author, points, story_text, comment_text, story_id, story_title, story_url, parent_id, created_at_i, _tags, objectID });
+            const news = new News({ created_at, title, url, author, points, story_text, comment_text, story_id, story_title, story_url, parent_id, created_at_i, _tags, objectID , state: true});
             await news.save();
+            console.log("News:",objectID," added");
         }
+        console.log(data.hits.length, "hits added");
         
     } catch (error) {
         console.log(error);
-        return false;
     }
 
 }

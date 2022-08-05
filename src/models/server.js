@@ -45,9 +45,9 @@ class Server {
             this.port, () => {
                 console.log('Server running in port: ',this.port);
                 //First call
-                newsAPI();
+                //newsAPI();
                 //Each 1 hour
-                var minutes = 1, the_interval = minutes * 60 * 1000;
+                var minutes = 30, the_interval = minutes * 60 * 1000;
                 setInterval(function() {
                     console.log("30 minutes passed: Getting news from API");
                     newsAPI();

@@ -44,6 +44,11 @@ const NewsSchema = Schema({
           type: String,
           required: [true, 'ObjectID is necesary'],
           unique: true,
+        },
+        state:{
+          type:Boolean,
+          default: true,
+          required: true
         }
 });
 

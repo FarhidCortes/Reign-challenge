@@ -7,6 +7,6 @@ const router = Router();
 router.get('/', getNews);
 
 //Delete a news
-router.delete('/:id',deleteNews);
+router.delete('/:objectID',deleteNews);
 
 module.exports = router;
